@@ -35,7 +35,7 @@ else:
 # *Пример:*
 # 385916 -> yes
 # 123456 -> no
-
+'''
 number = 0
 while number > 1000000 or number < 99999:
     number = int(input("Input six-digit number: "))
@@ -47,7 +47,7 @@ if left == right:
     print("You have a lucky ticket :)")
 else:
     print("This ticket is unlucky :(")
-
+'''
 # Задача 8: Требуется определить, можно ли от шоколадки размером
 # n × m долек отломить k долек, если разрешается сделать один
 # разлом по прямой между дольками (то есть разломить шоколадку
@@ -55,3 +55,12 @@ else:
 # *Пример:*
 # 3 2 4 -> yes
 # 3 2 1 -> no
+
+rows = int(input("Input rows: "))
+cols = int(input("Input cols: "))
+piece = int(input("Input amount of pieces: "))
+
+if piece < rows * cols and ((piece % rows == 0) or (piece % cols == 0)): 
+    print("Yes")
+else:
+    print("No")
