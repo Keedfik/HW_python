@@ -3,7 +3,11 @@
 # 123 -> 6 (1 + 2 + 3)
 # 100 -> 1 (1 + 0 + 0)
 
+number = 0
+while number>1000 or number <99:
+    number = int(input("Input three-digit number: "))
 
+print(f"{number//100} + {number//10%10} + {number%10} = {number//100 + number//10%10 + number%10}")
 
 # Задача 4: Петя, Катя и Сережа делают из бумаги журавликов. 
 # Вместе они сделали S журавликов. Сколько журавликов сделал 
