@@ -55,7 +55,7 @@ else:
 # *Пример:*
 # 3 2 4 -> yes
 # 3 2 1 -> no
-
+'''
 rows = int(input("Input rows: "))
 cols = int(input("Input cols: "))
 piece = int(input("Input amount of pieces: "))
@@ -64,3 +64,4 @@ if piece < rows * cols and ((piece % rows == 0) or (piece % cols == 0)):
     print("Yes")
 else:
     print("No")
+'''
