@@ -2,13 +2,13 @@
 # *Пример:*
 # 123 -> 6 (1 + 2 + 3)
 # 100 -> 1 (1 + 0 + 0)
-
+'''
 number = 0
 while number>1000 or number <99:
     number = int(input("Input three-digit number: "))
 
 print(f"{number//100} + {number//10%10} + {number%10} = {number//100 + number//10%10 + number%10}")
-
+'''
 # Задача 4: Петя, Катя и Сережа делают из бумаги журавликов. 
 # Вместе они сделали S журавликов. Сколько журавликов сделал 
 # каждый ребенок, если известно, что Петя и Сережа сделали 
@@ -19,7 +19,12 @@ print(f"{number//100} + {number//10%10} + {number%10} = {number//100 + number//1
 # 24 -> 4  16  4
 # 60 -> 10  40  10
 
+summ = int(input("Amount of cranes: "))
 
+if summ%6 == 0:
+    print(f"Petya and Serezha made {summ//6} cranes each and Katya made {(summ//6)*4} cranes")
+else:
+    print("That can't be")
 
 # Задача 6: Вы пользуетесь общественным транспортом? Вероятно, 
 # вы расплачивались за проезд и получали билет с номером. 
