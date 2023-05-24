@@ -19,13 +19,9 @@ for i in range(coins):
     else:
         count_heads += 1
 
-if count_tails<count_heads:
-    flips = count_tails
-else: 
-    flips = count_heads
-
-print(f"Min number of coins = {flips}")
+print(f"Min number of coins = {min(count_heads, count_tails)}")
 '''
+
 # Задача 12: Петя и Катя – брат и сестра. Петя – студент, а Катя – школьница. 
 # Петя помогает Кате по математике. Он задумывает два натуральных числа X и Y (X,Y≤1000), 
 # а Катя должна их отгадать. Для этого Петя делает две подсказки. Он называет сумму 
@@ -35,14 +31,14 @@ print(f"Min number of coins = {flips}")
 
 # Задача 14: Требуется вывести все целые степени двойки (т.е. числа вида 2k), 
 # не превосходящие числа N.
-
-number = 0
-while number <= 0:
+'''
+number = -1
+while number < 0:
     number = int(input("Input number: "))
 
 power = 2
-print(power)
 
-for i in range(number-1):
-    power *= 2
+while power <= number:
     print(power)
+    power *=2
+'''
