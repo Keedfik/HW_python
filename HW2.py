@@ -36,4 +36,13 @@ print(f"Min number of coins = {flips}")
 # Задача 14: Требуется вывести все целые степени двойки (т.е. числа вида 2k), 
 # не превосходящие числа N.
 
+number = 0
+while number <= 0:
+    number = int(input("Input number: "))
 
+power = 2
+print(power)
+
+for i in range(number-1):
+    power *= 2
+    print(power)
