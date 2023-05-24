@@ -26,9 +26,22 @@ print(f"Min number of coins = {min(count_heads, count_tails)}")
 # Петя помогает Кате по математике. Он задумывает два натуральных числа X и Y (X,Y≤1000), 
 # а Катя должна их отгадать. Для этого Петя делает две подсказки. Он называет сумму 
 # этих чисел S и их произведение P. Помогите Кате отгадать задуманные Петей числа.
-
-
-
+'''
+summ = 0
+while summ <= 0:
+    summ = int(input("Input sum numbers: "))
+product = 0
+while product <= 0:
+    product = int(input("Input product of numbers: "))
+flag = False
+for i in range(summ):
+    for j in range(product):
+        if i + j == summ and i*j == product and not flag:
+            print(f"first number = {i}, second number = {j}")
+            flag = True
+if flag == False:
+    print("Doesn't exist")
+'''
 # Задача 14: Требуется вывести все целые степени двойки (т.е. числа вида 2k), 
 # не превосходящие числа N.
 '''
@@ -36,9 +49,9 @@ number = -1
 while number < 0:
     number = int(input("Input number: "))
 
-power = 2
+power = 0
 
-while power <= number:
-    print(power)
-    power *=2
+while 2**power <= number:
+    print(2**power)
+    power +=1
 '''
