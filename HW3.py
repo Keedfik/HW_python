@@ -7,20 +7,24 @@
 #     1 2 3 4 5
 #     3
 #     -> 1
-
+'''
 import random
 print("\033c")
 
-list_length = int(input("Input list's length "))
+list_length = 0
+while list_length <= 0:
+    list_length = int(input("Input list's length "))
+
 num_list = []
+
 for i in range (list_length):
     num_list.append(random.randint(1, list_length))
 
 print(num_list)
 
 number = int(input("What number are we looking for? "))
-
 print(f"Number {number} appears {num_list.count(number)} times")
+'''
 
 # Задача 18: Требуется найти в массиве A[1..N] самый близкий по величине 
 # элемент к заданному числу X. Пользователь в первой строке вводит 
@@ -31,6 +35,31 @@ print(f"Number {number} appears {num_list.count(number)} times")
 #     1 2 3 4 5
 #     6
 #     -> 5
+
+import random
+print("\033c")
+
+list_length = 0
+while list_length <= 0:
+    list_length = int(input("Input list's length "))
+
+number = int(input("What number are we looking for? "))
+num_list = []
+
+for i in range (list_length):
+    num_list.append(random.randint(1, list_length))
+
+closest_num = num_list[0]
+
+for i in range (list_length):
+    if abs(number - closest_num) > abs(number - num_list[i]) :
+        closest_num = num_list[i]
+    
+print(num_list)
+print(f"Closest number to {number} in list is {closest_num}")
+
+
+
 
 
 
