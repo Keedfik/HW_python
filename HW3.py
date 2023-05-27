@@ -82,7 +82,7 @@ print(f"Closest number to {number} in list is {closest_num}")
 # Пример:
 # ноутбук
 #     12
-
+'''
 print("\033c")
 
 d = {   1: ["A", "E", "I", "O", "U", "L", "N", "S", "T", "R",
@@ -104,3 +104,4 @@ for letter in word:
             score += key
 
 print(f"Your score: {score}")
+'''
