@@ -35,7 +35,7 @@ print(f"Number {number} appears {num_list.count(number)} times")
 #     1 2 3 4 5
 #     6
 #     -> 5
-
+'''
 import random
 print("\033c")
 
@@ -57,15 +57,11 @@ for i in range (list_length):
     
 print(num_list)
 print(f"Closest number to {number} in list is {closest_num}")
-
-
-
-
-
-
+'''
 # Задача 20:  В настольной игре Скрабл (Scrabble) каждая буква имеет 
 # определенную ценность. В случае с английским алфавитом очки 
-# распределяются так: A, E, I, O, U, L, N, S, T, R – 1 очко; 
+# распределяются так: 
+# A, E, I, O, U, L, N, S, T, R – 1 очко; 
 # D, G – 2 очка; 
 # B, C, M, P – 3 очка; 
 # F, H, V, W, Y – 4 очка; 
@@ -86,3 +82,25 @@ print(f"Closest number to {number} in list is {closest_num}")
 # Пример:
 # ноутбук
 #     12
+
+print("\033c")
+
+d = {   1: ["A", "E", "I", "O", "U", "L", "N", "S", "T", "R",
+        "А", "В", "Е", "И", "Н", "О", "Р", "С", "Т"],
+        2:["D", "G", "Д", "К", "Л", "М", "П", "У"],
+        3:["B", "C", "M", "P", "Б", "Г", "Ё", "Ь", "Я"],
+        4:["F", "H", "V", "W", "Y", "Й", "Ы"],
+        5:["K", "Ж", "З", "Х", "Ц", "Ч" ],
+        8:["J", "X", "Ш", "Э", "Ю"],
+        10:["Q", "Z", "Ф", "Щ", "Ъ"]     
+     }
+
+word = input("Input word: ").upper()
+score = 0 
+
+for letter in word:
+    for key, value in d.items():
+        if letter in value:
+            score += key
+
+print(f"Your score: {score}")
