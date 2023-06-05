@@ -2,13 +2,13 @@
 # Выдать без повторений в порядке возрастания все те числа, которые встречаются в обоих наборах.
 # Пользователь вводит 2 числа. n — кол-во элементов первого множества. m — кол-во элементов второго множества. 
 # Затем пользователь вводит сами элементы множеств.
-
+'''
 n, m = input("Input amount of first and second lists ").split()
 first = [int(i) for i in input("First list ").split()]
 second = [int(j) for j in input("Second list ").split()]
 
 print("Duplicate numbers:", *sorted(set(first).intersection(second)))
-
+'''
 # Задача 24: В фермерском хозяйстве в Карелии выращивают чернику. Она растёт на круглой грядке, 
 # причём кусты высажены только по окружности. Таким образом, у каждого куста есть ровно два соседних. 
 # Всего на грядке растёт N кустов.
@@ -18,3 +18,17 @@ print("Duplicate numbers:", *sorted(set(first).intersection(second)))
 # находясь непосредственно перед некоторым кустом, собирает ягоды с этого куста и с двух соседних с ним.
 # Напишите программу для нахождения максимального числа ягод, которое может собрать 
 # за один заход собирающий модуль, находясь перед некоторым кустом заданной во входном файле грядки.
+
+n = 0
+while n <=0:
+    n = int(input("How much bushes do we grow? "))
+    
+bushes = [int(i) for i in input("How much berries on each bush? ").split()]
+bush_max = 0
+
+for i in range(-1, n - 1):
+    bush_sum = bushes[i - 1] + bushes[i] + bushes[i + 1]
+    if bush_sum > bush_max:
+            bush_max = bush_sum
+
+print(bush_max)
