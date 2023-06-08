@@ -4,6 +4,15 @@
 # A = 3; B = 5 -> 243 (3⁵)
 #     A = 2; B = 3 -> 8 
 
+def power_number(a, b):
+    if b == 0:
+        return 1
+    if b < 0:
+        return power_number(a, b + 1) * 1 / a
+    return power_number(a, b - 1) * a
+
+print(power_number(int(input("Input first number: ")), int(input("Input power number: "))))
+
 
 # Задача 28: Напишите рекурсивную функцию sum(a, b), возвращающую сумму двух
 #  целых неотрицательных чисел. Из всех арифметических операций допускаются 
