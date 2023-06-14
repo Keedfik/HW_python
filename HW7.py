@@ -9,7 +9,7 @@
 # *Пример:*
 # **Ввод:** пара-ра-рам рам-пам-папам па-ра-па-да    
 #     **Вывод:** Парам пам-пам  
-
+'''
 wovels = 'аоуэыяеёюиaeuio'
 poem = input("Input poem: ").split()
 result, counter = [], 0
@@ -27,7 +27,7 @@ if all(result) and len(set(result)) == 1:
     print("Парам пам-пам")
 else:
     print("Пам парам")
-
+'''
 
 # Задача 36: Напишите функцию print_operation_table(operation, num_rows=6, num_columns=6), 
 # которая принимает в качестве аргумента функцию, вычисляющую элемент по номеру строки и столбца. 
@@ -45,3 +45,12 @@ else:
 # 5 10 15 20 25 30
 # 6 12 18 24 30 36
 
+
+def print_operation_table(operation, num_rows=6, num_columns=6):
+    for i in range(1, num_rows + 1):
+        for j in range(1, num_columns + 1):
+            print(f"{operation(i, j):4}", end=" ")
+        print()
+rows = int(input("rows: "))
+cols = int(input("cols: "))
+print_operation_table(lambda x, y: x * y, rows, cols)
