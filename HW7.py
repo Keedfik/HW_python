@@ -10,6 +10,24 @@
 # **Ввод:** пара-ра-рам рам-пам-папам па-ра-па-да    
 #     **Вывод:** Парам пам-пам  
 
+wovels = 'аоуэыяеёюиaeuio'
+poem = input("Input poem: ").split()
+result, counter = [], 0
+for word in poem:
+    for letter in word:
+        if letter.lower() in wovels:
+            counter += 1
+    result.append(counter)
+    counter = 0
+# result = [sum([True for letter in word if letter.lower() in wovels]) for word in poem]
+
+print(result)
+
+if all(result) and len(set(result)) == 1:
+    print("Парам пам-пам")
+else:
+    print("Пам парам")
+
 
 # Задача 36: Напишите функцию print_operation_table(operation, num_rows=6, num_columns=6), 
 # которая принимает в качестве аргумента функцию, вычисляющую элемент по номеру строки и столбца. 
@@ -26,3 +44,4 @@
 # 4 8 12 16 20 24
 # 5 10 15 20 25 30
 # 6 12 18 24 30 36
+
