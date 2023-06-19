@@ -38,6 +38,72 @@ def add_new_contact():
     with open(file_base, "a", encoding="utf-8") as f:
         f.write(f"{last_id} {string}\n")
 
+def search():
+    flag = 1
+    name = input('Input smth: ')
+    for line in all_data:
+        if name in line:
+            flag = 0
+            print(line)
+    if flag: print('Empty data')
+
+def del_contact():
+    global all_data
+
+    symbol = "\n"
+    show_all()
+    del_record = input("Enter the record id: ")
+
+    if exist_contact(del_record, ""):
+        all_data = [k for k in all_data if k.split()[0] != del_record]
+
+        with open(file_base, 'w', encoding="utf-8") as f:
+            f.write(f'{symbol.join(all_data)}\n')
+        print("Record deleted!\n")
+    else:
+        print("The data is not correct!")
+
+
+def change_contact(data_tuple):
+    global all_data
+    symbol = "\n"
+
+    record_id, num_data, data = data_tuple
+
+    for i, v in enumerate(all_data):
+        if v.split()[0] == record_id:
+            v = v.split()
+            v[int(num_data)] = data
+            if exist_contact(0, " ".join(v[1:])):
+                print("The data already exists!")
+                return
+            all_data[i] = " ".join(v)
+            break
+
+    with open(file_base, 'w', encoding="utf-8") as f:
+        f.write(f'{symbol.join(all_data)}\n')
+    print("Record changed!\n")
+
+def exist_contact(rec_id, data):
+    if rec_id:
+        candidates = [i for i in all_data if rec_id in i.split()[0]]
+    else:
+        candidates = [i for i in all_data if data in i]
+    return candidates
+
+def data_collection(num):
+    answer = input(f"Enter a {num}: ")
+    while True:
+        if num in "surname name patronymic":
+            if answer.isalpha():
+                break
+        if num == "phone number":
+            if answer.isdigit() and len(answer) == 11:
+                break
+        answer = input(f"Data is incorrect!\n"
+                       f"Use only the letters of the alphabet, the length of the number is 11 digits\n"
+                       f"Enter a {num}: ")
+    return answer
 
 def main_menu():
     play = True
@@ -57,13 +123,77 @@ def main_menu():
             case "2":
                 add_new_contact()
             case "3":
-                pass
+                search()
             case "4":
-                pass
+                work = edit_menu()
+                if work:
+                    change_contact(work)
             case "5":
+                del_contact()
+            case "6":
+                exp_imp_menu()
+            case "7":
                 play = False
             case _:
                 print("Try again!\n")
+
+
+def edit_menu():
+    add_dict = {"1": "surname", "2": "name", "3": "patronymic", "4": "phone number"}
+
+    show_all()
+    record_id = input("Enter id: ")
+
+    if exist_contact(record_id, ""):
+        while True:
+            print("\nChanging:")
+            change = input("1. surname\n"
+                           "2. name\n"
+                           "3. patronymic\n"
+                           "4. phone number\n"
+                           "5. exit\n")
+
+            match change:
+                case "1" | "2" | "3" | "4":
+                    return record_id, change, data_collection(add_dict[change])
+                case "5":
+                    return 0
+                case _:
+                    print("The data is not recognized, try again.")
+    else:
+        print("The data is not correct!")
+
+
+def exp_bd(name):
+    symbol = "\n"
+
+    change_name = f"{name}.txt" 
+    if not path.exists(change_name):
+        with open(change_name, "w", encoding="utf-8") as f:
+            f.write(f'{symbol.join(all_data)}\n')
+
+def ipm_bd(name):
+    global file_base
+    if path.exists(name):
+        file_base = name
+        read_records()
+
+def exp_imp_menu():
+    while True:
+        print("\nExp/Imp menu:")
+        move = input("1. Import\n"
+                     "2. Export\n"
+                     "3. exit\n")
+
+        match move:
+            case "1":
+                ipm_bd(input("Enter the name of the file: "))
+            case "2":
+                exp_bd(input("Enter the name of the file: "))
+            case "3":
+                return 0
+            case _:
+                print("The data is not recognized, repeat the input.")
 
 
 main_menu()
